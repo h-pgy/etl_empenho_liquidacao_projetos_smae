@@ -1,7 +1,7 @@
 import re
 
 
-PROC_REGEX_PATT='(\d{16})|(\d{4}\.\d{4}/\d{7}-\d{1})|(\d{4}.*\d{4}.*\d{4}.*\d{1})'
+PROC_REGEX_PATT=r'(\d{16})|(\d{4}\.\d{4}/\d{7}-\d{1})|(\d{4}.*\d{4}.*\d{4}.*\d{1})'
 
 
 class ProcNumExtractor:

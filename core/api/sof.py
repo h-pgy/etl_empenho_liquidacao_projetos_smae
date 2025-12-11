@@ -43,6 +43,10 @@ class EmpenhosAPISOF:
         #mudou o nome do parametro
         status = api_resp['metaDados']['txtStatus']
         if status!='OK':
+
+            if status == 'SEM REGISTROS':
+                return []
+
             if retries < MAX_RETRIES:
                 retries +=1
                 self.__get_empenhos_by_proc(num_proc, mes, ano, retries)

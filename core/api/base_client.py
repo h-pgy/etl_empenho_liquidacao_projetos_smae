@@ -1,6 +1,6 @@
 from requests import Session
 from typing import Union
-
+from core.exceptions import SofRespError
 from .url_builder import UrlBuilder
 
 class RestClient:
@@ -25,7 +25,7 @@ class RestClient:
         url = self.build_url(namespace, endpoint, **query_params)
         with self.session.get(url) as r:
             if r.status_code!=200:
-                raise RuntimeError(f'Falha na requisição. Status: {r.status_code}. Message: {r.text}')
+                raise SofRespError(f'Falha na requisição. Status: {r.status_code}. Message: {r.text}')
             
             return r.json()
     
